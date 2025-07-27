@@ -37,28 +37,6 @@ Uma aplicação meteorológica moderna e responsiva desenvolvida com HTML, CSS e
 - **Async/Await** - Programação assíncrona moderna
 - **ES6+ Features** - Template literals, destructuring, arrow functions
 
-## 🚀 **Como Executar**
-
-### **📋 Instalação Simples:**
-1. **Clone ou download** do repositório
-2. **Abra** o `index.html` no seu browser
-3. **Pronto!** ✨ A aplicação está funcional
-
-```bash
-# Opção 1: Clone
-git clone https://github.com/DANIELFOTSOARES/weather-app.git
-cd weather-app
-open index.html
-
-# Opção 2: Download
-# Baixe o ZIP, extraia e abra index.html
-
-# Opção 3: Servidor Local (opcional)
-python -m http.server 8000
-# ou
-npx serve .
-```
-
 ### **🎯 Sem Configuração Necessária:**
 - ✅ **Funciona imediatamente** - Zero setup
 - ✅ **API key incluída** - Pronto para uso
@@ -77,7 +55,6 @@ weather-app/
 ├── 🎨 styles.css          # Estilos CSS e animações
 ├── ⚡ script.js           # Lógica JavaScript e API calls
 ├── ⚙️ config.js           # Configuração da API (plug & play)
-├── 🚫 .gitignore          # Ficheiros ignorados pelo Git
 └── 📖 README.md           # Documentação do projeto
 ```
 
@@ -141,21 +118,6 @@ Utilizador → Input/Geolocalização → Validação → API Call → Processam
 - **❌ Erro** - Mensagens de erro específicas
 - **🏠 Inicial** - Estado antes de qualquer pesquisa
 
-## 🎨 **Design System**
-
-### **Cores Principais**
-- **Gradiente Principal**: `#667eea → #764ba2 → #f093fb`
-- **Gradiente Secundário**: Variações animadas para dinamismo
-- **Transparências**: Glass morphism com `rgba(255, 255, 255, 0.1)`
-
-### **Tipografia**
-- **Font Family**: Poppins (Google Fonts)
-- **Weights**: 300, 400, 500, 600, 700
-
-### **Animações**
-- **Background**: Gradientes animados a cada 20s
-- **Hover Effects**: Transformações 3D e sombras
-- **Loading States**: Spinners e transições suaves
 
 ## 📱 **Responsividade**
 
@@ -198,8 +160,6 @@ Este projeto está sob a licença MIT. Vê o ficheiro [LICENSE](LICENSE) para ma
 
 **Daniel Soares**
 - 🌐 Portfolio: [danielfotsoares.github.io/Portfolio](https://danielfotsoares.github.io/Portfolio/)
-- 💼 LinkedIn: [Teu LinkedIn]
-- 📧 Email: [Teu Email]
 
 ## 🙏 **Agradecimentos**
 
