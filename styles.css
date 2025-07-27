@@ -1,0 +1,606 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body e background */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 20px;
+    animation: gradientShift 20s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { 
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); 
+    }
+    25% { 
+        background: linear-gradient(135deg, #6c7ae0 0%, #7c56c2 50%, #ec8bfc 100%); 
+    }
+    50% { 
+        background: linear-gradient(135deg, #7085f0 0%, #8264d2 50%, #e881fb 100%); 
+    }
+    75% { 
+        background: linear-gradient(135deg, #6a7ff2 0%, #7a60c0 50%, #ea88fd 100%); 
+    }
+}
+
+/* Container principal */
+.Container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    animation: slideUp 0.8s ease;
+}
+
+.Container:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+}
+
+/* Conteúdo principal */
+.Conteudo-principal {
+    padding: 30px;
+}
+
+/* Secção de input */
+.input {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#CidadeInput {
+    padding: 18px 25px;
+    font-size: 1.1rem;
+    border: 3px solid transparent;
+    border-radius: 50px;
+    width: 350px;
+    margin-right: 15px;
+    outline: none;
+    background: linear-gradient(white, white) padding-box, 
+                linear-gradient(135deg, #667eea, #764ba2) border-box;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+#CidadeInput:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+}
+
+#CidadeInput::placeholder {
+    color: #a0a0a0;
+    font-weight: 300;
+}
+
+button {
+    padding: 18px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 8px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+#searchCidade {
+    background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+    color: white;
+}
+
+#searchAtual {
+    background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+/* Resultado principal */
+.Resultado {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.Resultado::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+.nomePais {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.TemperaturaAtual {
+    font-size: 5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 25px 0;
+    text-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    position: relative;
+}
+
+.descricao {
+    font-size: 1.4rem;
+    color: #636e72;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.icone {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.icone:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* Extras */
+.Extras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.Extras p {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2d3436;
+    border-left: 5px solid;
+    border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.Extras p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.Extras p:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.Extras p:hover::before {
+    opacity: 1;
+}
+
+/* Previsão */
+.Previsao {
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.Previsao h2 {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.previsao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.previsao-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.previsao-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.previsao-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.previsao-item .data {
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.icone-previsao {
+    width: 60px;
+    height: 60px;
+    margin: 15px 0;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.icone-previsao:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.temperatura-maxima {
+    font-weight: 700;
+    color: #e17055;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.temperatura-minima {
+    color: #74b9ff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .Container {
+        margin: 15px;
+        border-radius: 20px;
+    }
+    
+    header {
+        padding: 30px 20px;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    #CidadeInput {
+        width: 280px;
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+    
+    .TemperaturaAtual {
+        font-size: 4rem;
+    }
+    
+    .Extras {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .previsao-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .Resultado {
+        padding: 30px 20px;
+    }
+    
+    .nomePais {
+        font-size: 1.8rem;
+    }
+    
+    .icone {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .Conteudo-principal {
+        padding: 20px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    #CidadeInput {
+        width: 240px;
+        padding: 15px 20px;
+    }
+    
+    button {
+        padding: 15px 25px;
+        font-size: 0.9rem;
+        margin: 5px;
+    }
+    
+    .TemperaturaAtual {
+        font-size: 3.5rem;
+    }
+    
+    .Resultado {
+        padding: 25px 15px;
+    }
+    
+    .Extras p {
+        padding: 20px;
+    }
+    
+    .Previsao {
+        padding: 25px 15px;
+    }
+    
+    .previsao-item {
+        padding: 25px 15px;
+    }
+}
+
+/* Estilos para Previsão do Tempo */
+.previsao-section {
+    margin-top: 30px;
+}
+
+.previsao-titulo {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.previsao-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.previsao-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.previsao-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-date {
+    text-align: left;
+}
+
+.data {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.day-name {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px 0 0 0;
+    text-transform: capitalize;
+}
+
+.forecast-weather {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icone-previsao {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.forecast-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 5px 0 0 0;
+    text-transform: capitalize;
+}
+
+.forecast-temps {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.temperatura-maxima,
+.temperatura-minima {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.temperatura-maxima {
+    color: #ff6b6b;
+}
+
+.temperatura-minima {
+    color: #74c0fc;
+}
+
+.temperatura-maxima i,
+.temperatura-minima i {
+    font-size: 0.8rem;
+}
+
+/* Responsive design para previsão */
+@media (max-width: 768px) {
+    .previsao-grid .previsao-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .previsao-grid .forecast-date,
+    .previsao-grid .forecast-temps {
+        text-align: center;
+    }
+    
+    .previsao-grid .forecast-temps {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+}
